@@ -6,7 +6,7 @@
 /*   By: lanachaineux <lanachaineux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:02:55 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/13 14:58:19 by lanachaineu      ###   ########.fr       */
+/*   Updated: 2021/10/13 15:34:23 by lanachaineu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,10 @@ typedef struct	s_data
 
 //INIT
 void	init_data(t_data *data, char **env, t_env *env_temp, char **av);
+
+//UTILS
+size_t	ft_strlen(const char *str);
+char 	*ft_strdup(const char *str);
+int 	ft_strcmp(const char *s1, const char *s2);
 
 #endif 
