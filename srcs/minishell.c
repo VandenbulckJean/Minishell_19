@@ -3,18 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
+/*   By: lanachaineux <lanachaineux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:05:33 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/13 14:04:02 by jvanden-         ###   ########.fr       */
+/*   Updated: 2021/10/13 14:54:58 by lanachaineu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/minishell.h"
 
-int main(int argc, char **argv)
+int main(int ac, char **av, char **env)
 {
-	if (argc != 1)
+	t_data data;
+	
+	if (ac != 1)
 		return (0);
 	rl_outstream = stderr;
+	init_data(&data, env, NULL, av);
 }
