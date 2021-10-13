@@ -6,7 +6,7 @@
 #    By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/05 10:17:34 by jvanden-          #+#    #+#              #
-#    Updated: 2021/10/05 13:51:29 by jvanden-         ###   ########.fr        #
+#    Updated: 2021/10/13 14:26:09 by jvanden-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ NAME		=	minishell
 
 SRCS_PATH			=	srcs/
 
-SRCS_MINISHELL	=	minishell.c
+SRCS_MINISHELL	=	minishell.c \
+					init.c
 				
 ##SRCS_UTILS			=	
 
