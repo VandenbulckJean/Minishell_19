@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 10:02:55 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/13 15:05:29 by jvanden-         ###   ########.fr       */
+/*   Created: 2021/10/13 14:37:29 by jvanden-          #+#    #+#             */
+/*   Updated: 2021/10/13 14:48:41 by jvanden-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "../../includes/minishell.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <readline/readline.h>
-# include <readline/history.h>
+char *ft_strdup(const char *str)
+{
+	char *temp;
+	size_t len;
+	int i;
 
-
-//UTILS
-size_t	ft_strlen(const char *str);
-char 	*ft_strdup(const char *str);
-int 	ft_strcmp(const char *s1, const char *s2);
-
-#endif 
+	if (!str)
+		return (NULL);
+	len = ft_strlen(str) + 1;
+	temp = malloc(sizeof(char) * (len + 1));
+	if (!temp)
+		return (NULL);
+	i = 0;
+	while (str[i])
+	{
+		temp[i] = str[i];
+		i++;
+	}
+	temp[i] = '\0';
+	return (temp);
+}

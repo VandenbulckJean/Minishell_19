@@ -1,46 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 10:05:33 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/13 15:06:28 by jvanden-         ###   ########.fr       */
+/*   Created: 2021/10/13 14:51:41 by jvanden-          #+#    #+#             */
+/*   Updated: 2021/10/13 15:05:55 by jvanden-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/minishell.h"
+#include "../../includes/minishell.h"
 
-int is_string_empty(char *str)
+int ft_strcmp(const char *s1, const char *s2)
 {
-	if (!ft_strcmp(str, ""))
-	{
-		if (str)
-		{
-			free(str);
-			str = NULL;
-		}
-		return (1);
-	}
-	return (0);
-}
+	unsigned int i;
 
-int main(int argc, char **argv, char **env)
-{
-	char *str;
-	
-	(void)argv;
-	(void)env;
-	if (argc != 1)
+	if (!s1 && !s2)
 		return (0);
-	while(1)
-	{
-		str = readline("minishell$ ");
-		if (!str)
-			ft_strdup("exit");
-		if (is_string_empty(str))
-			continue;
-		add_history(str);
-	}
+	if (!s1 || !s2)
+		return (1);
+	i = 0;
+	while (s1[i] && s2[i] && (unsigned char)s1[i] == (unsigned char)s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

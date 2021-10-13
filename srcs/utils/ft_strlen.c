@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 13:34:34 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/05 13:37:29 by jvanden-         ###   ########.fr       */
+/*   Created: 2021/10/13 14:38:46 by jvanden-          #+#    #+#             */
+/*   Updated: 2021/10/13 14:42:17 by jvanden-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <stdio.h>
+#include "../../includes/minishell.h"
 
-int main (int argc, char **argv)
+size_t	ft_strlen(const char *str)
 {
-	int i = 0;
+	size_t i;
 
-	if (argc == 1)
-		printf("no argv\n");
-	else
-	{
-		while(argc-- > 1)
-		{
-			printf("%s\n", argv[argc]);
-		}
-	}
-	return (0);
+	i = 0;
+	if (!str)
+		return (0);
+	while(str[i])
+		i++;
+	return (i);
 }
