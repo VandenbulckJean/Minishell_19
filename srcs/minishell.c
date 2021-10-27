@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
+/*   By: lanachaineux <lanachaineux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:05:33 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/27 13:02:31 by jvanden-         ###   ########.fr       */
+/*   Updated: 2021/10/27 16:40:39 by lanachaineu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,7 @@ int main(int ac, char **av, char **env)
 		if (is_string_empty(str))
 			continue;
 		add_history(str);
+		if (!parse(&data, str, 0))
+			
 	}
 }

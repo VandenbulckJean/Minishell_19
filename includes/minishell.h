@@ -6,7 +6,7 @@
 /*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:02:55 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/27 16:49:58 by jvanden-         ###   ########.fr       */
+/*   Updated: 2021/10/27 16:50:34 by jvanden-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,18 @@ typedef struct	s_data
 //INIT
 void	init_data(t_data *data, char **env, char **av);
 
+
+//PARSING
+int		parse(t_data *data, char *str, int i);
+
+//OPERATORS HANDLER
+int		handle_op(t_data *data, char *str, int *i, int act);
+
 //UTILS
 size_t	ft_strlen(const char *str);
 char 	*ft_strdup(const char *str);
 int 	ft_strcmp(const char *s1, const char *s2);
+int		is_char_operator(char c, char *str);
 void	ft_putstr_fd(char *str, int fd);
 void 	ft_putchar_fd(char c, int fd);
 
