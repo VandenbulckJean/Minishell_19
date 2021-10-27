@@ -6,7 +6,7 @@
 /*   By: lanachaineux <lanachaineux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:02:55 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/27 16:42:01 by lanachaineu      ###   ########.fr       */
+/*   Updated: 2021/10/27 16:51:09 by lanachaineu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define ERR_MALOC	"Error : malloc error"
 
 
+
 typedef struct s_env
 {
 	//int				print;
@@ -38,13 +39,13 @@ typedef struct s_env
 
 typedef struct	s_data
 {
-	//unsigned char	return_value;
+	unsigned char	return_value;
 	//unsigned char	error;
 	//int	fl;
-	//int	count;
+	int	count;
 	//int	fd_in;
 	//int	fd_out;
-	//int	total_commands;
+	int	total_commands;
 	//int	**fd_pipes;
 	//int	shlvl;
 	//int	old_stat;
