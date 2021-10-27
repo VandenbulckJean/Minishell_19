@@ -6,7 +6,7 @@
 /*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:02:55 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/27 16:27:17 by jvanden-         ###   ########.fr       */
+/*   Updated: 2021/10/27 16:49:58 by jvanden-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,6 @@ void	ft_putstr_fd(char *str, int fd);
 void 	ft_putchar_fd(char c, int fd);
 
 //ERROR
-int 	error_manager(int error_type, int error_code, char *error_message);
+int 	error_manager(int error_type, int error_code, char *error_message, char current_c));
 
 #endif 
