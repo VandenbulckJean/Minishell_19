@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lanachaineux <lanachaineux@student.42.f    +#+  +:+       +#+        */
+/*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 14:49:07 by lanachaineu       #+#    #+#             */
-/*   Updated: 2021/10/27 16:40:32 by lanachaineu      ###   ########.fr       */
+/*   Updated: 2021/10/27 16:50:29 by jvanden-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,15 @@ static void	setup_basic_env(t_data *data, char **av)
 
 static void	parse_env(t_data* data, char **av)
 {
+	int i;
+	size_t len;
+	
 	if (!data->string_env)
 		setup_basic_env(data, av);
+	while(data->string_env && data->string_env[i])
+	{
+		
+	}
 }
 
 void	init_data(t_data *data, char **env, char **av)

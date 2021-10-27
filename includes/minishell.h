@@ -6,7 +6,7 @@
 /*   By: lanachaineux <lanachaineux@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:02:55 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/27 16:51:09 by lanachaineu      ###   ########.fr       */
+/*   Updated: 2021/10/27 16:52:05 by lanachaineu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ void	ft_putstr_fd(char *str, int fd);
 void 	ft_putchar_fd(char c, int fd);
 
 //ERROR
-int 	error_manager(int error_type, int error_code, char *error_message);
+int 	error_manager(int error_type, int error_code, char *error_message, char current_c));
 
 #endif 
