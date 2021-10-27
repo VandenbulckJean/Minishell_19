@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lanachaineux <lanachaineux@student.42.f    +#+  +:+       +#+        */
+/*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:05:33 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/13 15:34:04 by lanachaineu      ###   ########.fr       */
+/*   Updated: 2021/10/27 13:02:31 by jvanden-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main(int ac, char **av, char **env)
 	if (ac != 1)
 		return (0);
 	rl_outstream = stderr;
-	init_data(&data, env, NULL, av);
+	init_data(&data, env, av);
 	while(1)
 	{
 		str = readline("minishell$ ");
