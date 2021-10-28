@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 10:05:33 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/28 14:52:42 by jvanden-         ###   ########.fr       */
+/*   Created: 2021/10/28 14:43:01 by jvanden-          #+#    #+#             */
+/*   Updated: 2021/10/28 15:22:38 by jvanden-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-int g_stat;
-
-int main(int ac, char **av, char **env)
+static void ctrl_c_handler(int sig)
 {
-	char *str;
-	t_data data;
+	(void)sig;
+	write(2, "\n", 1);
+	rl_replace_line("", 0);
+	rl_on_new_line();
+	rl_redisplay();
+	g_stat = 1;
+}
 
-	if (ac != 1)
-		return (0);
-	rl_outstream = stderr;
-	init_data(&data, env, av);
-	while (1)
-	{
-		str = readline("minishell$ ");
-		if (!str)
-			ft_strdup("exit");
-		if (is_string_empty(str))
-			continue;
-		add_history(str);
-		//if (!parse(&data, str, 0))
-	}
+void main_signals(void)
+{
+	signal(SIGTERM, SIG_IGN);
+	signal(SIGINT, ctrl_c_handler);
+	signal(SIGQUIT, SIG_IGN);
 }

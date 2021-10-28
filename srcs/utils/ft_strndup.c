@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 10:05:33 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/28 14:52:42 by jvanden-         ###   ########.fr       */
+/*   Created: 2021/10/28 15:00:28 by jvanden-          #+#    #+#             */
+/*   Updated: 2021/10/28 15:02:27 by jvanden-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "../../includes/minishell.h"
 
-int g_stat;
-
-int main(int ac, char **av, char **env)
+char *ft_strndup(const char *src, size_t n)
 {
-	char *str;
-	t_data data;
+	char *new;
+	size_t length;
+	size_t i;
 
-	if (ac != 1)
-		return (0);
-	rl_outstream = stderr;
-	init_data(&data, env, av);
-	while (1)
+	if (!src)
+		return (NULL);
+	length = ft_strlen(src) + 1;
+	if (length < n)
 	{
-		str = readline("minishell$ ");
-		if (!str)
-			ft_strdup("exit");
-		if (is_string_empty(str))
-			continue;
-		add_history(str);
-		//if (!parse(&data, str, 0))
+		new = malloc(sizeof(char) * length);
+		n = length;
 	}
+	else
+		new = malloc(sizeof(char) * (n + 1));
+	if (!new)
+		return (NULL);
+	i = 0;
+	while (src[i] && i < n)
+		new[i] = src[i], i++;
+	new[i] = 0;
+	return (new);
 }

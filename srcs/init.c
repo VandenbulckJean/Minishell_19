@@ -6,13 +6,13 @@
 /*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 14:49:07 by lanachaineu       #+#    #+#             */
-/*   Updated: 2021/10/27 16:50:29 by jvanden-         ###   ########.fr       */
+/*   Updated: 2021/10/28 14:58:21 by jvanden-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-static void	set_data_to_null(t_data *data)
+static void set_data_to_null(t_data *data)
 {
 	(void)data;
 	//data->error = 0;
@@ -28,55 +28,32 @@ static void	set_data_to_null(t_data *data)
 	//data->rez = NULL;
 }
 
-t_env	*new_env(char *key, char *value, unsigned char visibility)
+void init_data(t_data *data, char **env, char **av)
 {
-	t_env *new;
+	t_env *temp;
 
-	new = malloc(sizeof(t_env));
-	if (!new)
-		error_manager(0, -1, ERR_MALOC);
-	new->key = key;
-	new->value = value;
-	//new->print = 0;
-	new->visibility = visibility;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
-}
-
-static void	setup_basic_env(t_data *data, char **av)
-{
-	t_env	*start;
-	char	*working_dir;
-
-	start = new_env(ft_strdup("SHLVL"), ft_strdup("1"), 1);
-	start->next = new_env(ft_strdup("_"), ft_strdup(av[0]), 1);
-	working_dir = getcwd(NULL, PWD_LEN);
-	start->next->next = new_env(ft_strdup("PWD"), working_dir, 1);
-	data->env = start;
-}
-
-static void	parse_env(t_data* data, char **av)
-{
-	int i;
-	size_t len;
-	
-	if (!data->string_env)
-		setup_basic_env(data, av);
-	while(data->string_env && data->string_env[i])
-	{
-		
-	}
-}
-
-void	init_data(t_data *data, char **env, char **av)
-{
-	t_env *tmp;
-
-	tmp = NULL;
+	temp = NULL;
 	set_data_to_null(data);
 	data->string_env = env;
-	
-
-
+	parse_envs(data, av);
+	temp = data->env;
+	while (temp)
+	{
+		if (!ft_strcmp(temp->key, "SHLVL"))
+		{
+			data->shlvl = ft_atoi(temp->value) + 1;
+			free(temp->value);
+			if (data->shlvl < 0)
+				data->shlvl = 0;
+			temp->value = ft_itoa(data->shlvl);
+		}
+		if (!ft_strcmp(temp->key, "OLDPWD"))
+		{
+			free(temp->value);
+			temp->value = NULL;
+		}
+		if (!ft_strcmp(temp->key, "PWD"))
+			working_directory(data, 1);
+		temp = temp->next;
+	}
 }

@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_utils.c                                    :+:      :+:    :+:   */
+/*   ft_strlen_c.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lanachaineux <lanachaineux@student.42.f    +#+  +:+       +#+        */
+/*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/27 15:03:44 by lanachaineu       #+#    #+#             */
-/*   Updated: 2021/10/27 15:39:04 by lanachaineu      ###   ########.fr       */
+/*   Created: 2021/10/27 16:56:21 by jvanden-          #+#    #+#             */
+/*   Updated: 2021/10/27 16:57:35 by jvanden-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int	is_char_operator(char c, char *str)
+size_t	ft_strlen_c(const char *str, char c)
 {
-	while(*str)
+	size_t	i;
+
+	if (!str)
+		return (0);
+	i = 0;
+	if (!c)
 	{
-		if (*str == c)
-			return (1);
-		str++;
+		while (str[i])
+			i++;
 	}
-	return (0);
+	else
+	{
+		while (str[i] && str[i] != c)
+			i++;
+		if (!str[i])
+			i = 0;
+	}
+	return (i);
 }
