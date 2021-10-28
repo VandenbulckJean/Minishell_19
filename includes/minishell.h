@@ -6,7 +6,7 @@
 /*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:02:55 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/28 15:05:47 by jvanden-         ###   ########.fr       */
+/*   Updated: 2021/10/28 16:26:44 by jvanden-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ typedef struct s_env
 
 typedef struct s_data
 {
-	//unsigned char	return_value;
+	unsigned char return_value;
 	//unsigned char	error;
 	//int	fl;
-	int count; //??
+	int count;
 	//int	fd_in;
 	//int	fd_out;
-	//int	total_commands;
+	int total_commands;
 	//int	**fd_pipes;
 	int shlvl;
 	//int	old_stat;
