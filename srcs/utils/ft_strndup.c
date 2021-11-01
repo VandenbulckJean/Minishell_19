@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_string_empty.c                                  :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/28 14:48:52 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/28 14:49:24 by jvanden-         ###   ########.fr       */
+/*   Created: 2021/10/28 15:00:28 by jvanden-          #+#    #+#             */
+/*   Updated: 2021/10/28 15:02:27 by jvanden-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int is_string_empty(char *str)
+char *ft_strndup(const char *src, size_t n)
 {
-	if (!ft_strcmp(str, ""))
+	char *new;
+	size_t length;
+	size_t i;
+
+	if (!src)
+		return (NULL);
+	length = ft_strlen(src) + 1;
+	if (length < n)
 	{
-		if (str)
-		{
-			free(str);
-			str = NULL;
-		}
-		return (1);
+		new = malloc(sizeof(char) * length);
+		n = length;
 	}
-	return (0);
+	else
+		new = malloc(sizeof(char) * (n + 1));
+	if (!new)
+		return (NULL);
+	i = 0;
+	while (src[i] && i < n)
+		new[i] = src[i], i++;
+	new[i] = 0;
+	return (new);
 }

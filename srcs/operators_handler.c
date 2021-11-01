@@ -6,7 +6,7 @@
 /*   By: lchaineu <lchaineu@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 15:40:09 by lchaineu          #+#    #+#             */
-/*   Updated: 2021/10/28 14:18:43 by lchaineu         ###   ########.fr       */
+/*   Updated: 2021/11/01 15:07:21 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	ft_open(t_data *data, char *str, int *i, int level)
 
 static int	handle_multiple_angle_brackets(t_data *data, char *str, int *i)
 {
-	if (is_char_operator(str[*i + 2], ";><"))
+	/f (is_char_operator(str[*i + 2], ";><"))
 	{
 		error_manager(1, 0,ERR_SYN_TKN, str[*i + 2]);
 		data->return_value = 2;
@@ -85,8 +85,9 @@ static int	handle_angle_brackets(t_data *data, char *str, int *i)
 	return (ft_open(data, str, i, 3));
 }
 
-int		handle_op(t_data *data, char *str, int *i, int act)
+int handle_op(t_data *data, char *str, int *i, int act)
 {
+	
 	if ((str[*i] == '<' || str[*i] == '>') 
 		&& (str[*i + 1] == '<' || str[*i + 1] == '>'))
 	{
@@ -97,7 +98,6 @@ int		handle_op(t_data *data, char *str, int *i, int act)
 	{
 		act = handle_angle_brackets(data, str, i);
 	}
-
 
 
 }

@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_string_empty.c                                  :+:      :+:    :+:   */
+/*   ft_strlen_c.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/28 14:48:52 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/28 14:49:24 by jvanden-         ###   ########.fr       */
+/*   Created: 2021/10/27 16:56:21 by jvanden-          #+#    #+#             */
+/*   Updated: 2021/10/27 16:57:35 by jvanden-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int is_string_empty(char *str)
+size_t	ft_strlen_c(const char *str, char c)
 {
-	if (!ft_strcmp(str, ""))
+	size_t	i;
+
+	if (!str)
+		return (0);
+	i = 0;
+	if (!c)
 	{
-		if (str)
-		{
-			free(str);
-			str = NULL;
-		}
-		return (1);
+		while (str[i])
+			i++;
 	}
-	return (0);
+	else
+	{
+		while (str[i] && str[i] != c)
+			i++;
+		if (!str[i])
+			i = 0;
+	}
+	return (i);
 }
