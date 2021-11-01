@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
+/*   By: lchaineu <lchaineu@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 13:12:40 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/27 16:49:56 by jvanden-         ###   ########.fr       */
+/*   Updated: 2021/10/28 14:07:47 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ int error_manager(int error_type, int error_code, char *error_message, char curr
 		write_error_nl(error_message);
 		exit(error_code);
 	}
+	
 }

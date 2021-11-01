@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lanachaineux <lanachaineux@student.42.f    +#+  +:+       +#+        */
+/*   By: lchaineu <lchaineu@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:02:55 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/27 16:52:05 by lanachaineu      ###   ########.fr       */
+/*   Updated: 2021/10/28 14:07:40 by lchaineu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 
 # define PWD_LEN	1024
 
-# define ERR_MALOC	"Error : malloc error"
-
-
+# define ERR_MALOC		"Error : malloc error"
+# define ERR_SYN_TKN	"minishell: syntax error near unexpected token "
+# define ERR_SYN_TKN_NL	"minishell: syntax error near unexpected token newline"
 
 typedef struct s_env
 {
@@ -43,8 +43,8 @@ typedef struct	s_data
 	//unsigned char	error;
 	//int	fl;
 	int	count;
-	//int	fd_in;
-	//int	fd_out;
+	int	fd_in;
+	int	fd_out;
 	int	total_commands;
 	//int	**fd_pipes;
 	//int	shlvl;
