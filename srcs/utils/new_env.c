@@ -6,7 +6,7 @@
 /*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 14:53:43 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/28 14:54:04 by jvanden-         ###   ########.fr       */
+/*   Updated: 2021/10/28 17:15:59 by jvanden-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ t_env *new_env(char *key, char *value, unsigned char visibility)
 	//new->print = 0;
 	new->visibility = visibility;
 	new->next = NULL;
-	new->prev = NULL;
+	new->previous = NULL;
 	return (new);
 }

@@ -6,7 +6,7 @@
 /*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:05:33 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/28 14:52:42 by jvanden-         ###   ########.fr       */
+/*   Updated: 2021/10/28 16:40:32 by jvanden-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int main(int ac, char **av, char **env)
 		return (0);
 	rl_outstream = stderr;
 	init_data(&data, env, av);
+	main_signals();
 	while (1)
 	{
 		str = readline("minishell$ ");

@@ -6,7 +6,7 @@
 /*   By: jvanden- <jvanden-@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 10:02:55 by jvanden-          #+#    #+#             */
-/*   Updated: 2021/10/28 16:26:44 by jvanden-         ###   ########.fr       */
+/*   Updated: 2021/10/28 16:56:27 by jvanden-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_env
 	char *key;
 	char *value;
 	unsigned char visibility;
-	struct s_env *prev;
+	struct s_env *previous;
 	struct s_env *next;
 
 } t_env;
@@ -97,4 +97,8 @@ int error_manager(int error_type, int error_code, char *error_message, char curr
 
 //COMANDS
 void working_directory(t_data *data, int level);
+
+//SIGNALS
+void main_signals(void);
+
 #endif
